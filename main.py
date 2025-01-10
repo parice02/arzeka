@@ -1,8 +1,8 @@
+import webbrowser
 from datetime import datetime
 from random import randint
-import webbrowser
 
-from arzeka import initiate_payment, check_payment
+from arzeka import check_payment, initiate_payment
 
 dev_url = "https://pgw-test.faso-arzeka.com/AvepayPaymentGatewayUI/avepaypayment/app/"
 prod_url = "https://pgw.faso-arzeka.com/AvepayPaymentGatewayUI/avepay-payment/app/"

@@ -89,12 +89,16 @@ class ArzekaPayment(BasePayment):
         kwargs.update(
             {
                 "securedAccessToken": self.token,
-                "linkForUpdateStatus": base64.urlsafe_b64encode(
-                    bytes(kwargs.get("linkForUpdateStatus"), encoding="utf8")
-                ).__str__(),
-                "linkBackToCallingWebsite": base64.urlsafe_b64encode(
-                    bytes(kwargs.get("linkBackToCallingWebsite"), encoding="utf8")
-                ).__str__(),
+                "linkForUpdateStatus": str(
+                    base64.urlsafe_b64encode(
+                        bytes(kwargs.get("linkForUpdateStatus"), encoding="utf8")
+                    )
+                ),
+                "linkBackToCallingWebsite": str(
+                    base64.urlsafe_b64encode(
+                        bytes(kwargs.get("linkBackToCallingWebsite"), encoding="utf8")
+                    )
+                ),
             }
         )
 
