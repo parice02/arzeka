@@ -2,12 +2,10 @@
 
 API non officiel pour les paiements mobiles le moyen de paiement ARZEKA au Burkina Faso
 
-
 ## Avant l'installation
 
 1. Obtenir un compte API avec Arzeka Money (token, ....)
 2. Installer les certificats fournis par l'opérateur s'il y'en a
-
 
 ## Dépendances
 
@@ -20,7 +18,6 @@ API non officiel pour les paiements mobiles le moyen de paiement ARZEKA au Burki
 pip install git+https://github.com/parice02/arzeka.git # with pip
 poetry add git+https://github.com/parice02/arzeka.git # with poetry
 ```
-
 
 ## Cas d'utilisation
 
@@ -62,7 +59,6 @@ print(response)
 ## Contribution
 
 Les contributions sont libres.
-
 
 ## Reste à faire
 

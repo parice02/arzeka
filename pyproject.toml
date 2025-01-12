@@ -1,33 +1,24 @@
-[project]
-name = "arzeka"
+[tool.poetry]
+name = "arzeka-payment"
 version = "0.0.1"
-classifiers = [
-    "Development Status :: 4 - Beta",
-    "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
-    "Operating System :: OS Independent",
-]
-description = "Library for arzeka payment in Burkina Faso"
-authors = [
-    { name = "Mohamed ZEBA", email = "parice02@hotmail.com" },
-    { name = "Abdoul Kader KABORÉ", email = "derokabore@hotmail.com" },
-]
-readme = { file = "README.md", content-type = "text/markdown" }
-requires-python = ">=3.8"
-dynamic = ["version"]
-license = { file = "LICENSE" }
-dependencies = ["requests>=2.31.0", "setuptools"]
-keywords = [
-    "arzeka","arzeka payment",
-    "burkina mobile money",
-    "mobile money",
-]
+description = ""
+authors = ["Mohamed Zeba <parice02@hotmail.com>"]
+readme = "README.md"
+packages = [{ include = "arzeka_payment" }]
+keywords = ["arzeka", "arzeka payment", "burkina mobile money", "mobile money"]
 
-[project.urls]
-Homepage = "https://github.com/parice02/bf-mobilemoney"
-Issues = "https://github.com/parice02/bf-mobilemoney/issues"
-Repository = "https://github.com/parice02/bf-mobilemoney.git"
+[tool.poetry.dependencies]
+python = "^3.8"
+requests ="^2.31.0"
+setuptools ="*"
+
+
+[tool.poetry.urls]
+homepage = "https://github.com/parice02/arzeka"
+"Bug Tracker" = "https://github.com/parice02/arzeka/issues"
+repository = "https://github.com/parice02/arzeka.git"
+
 
 [build-system]
-requires = ["setuptools>=61.0"]
-build-backend = "setuptools.build_meta"
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
