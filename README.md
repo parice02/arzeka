@@ -57,6 +57,8 @@ print(response)
 
 ### Exemple de vérification de paiement
 
+à rédiger
+
 ## Contribution
 
 Les contributions sont libres.
