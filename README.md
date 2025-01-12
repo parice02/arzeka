@@ -48,7 +48,7 @@ payment_data = {
     "linkBackToCallingWebsite": linkBackToCallingWebsite,
 }
 
-response = initiate_payment(token, api_url, **data)
+response = initiate_payment(token, api_url, data)
 print(response)
 ```
 
