@@ -1,6 +1,6 @@
-# ARZEKA Mobile Money Payment API (Burkina Faso)
+# FASO ARZEKA Mobile Money Payment API (Burkina Faso)
 
-API non officiel pour les paiements mobiles le moyen de paiement ARZEKA au Burkina Faso
+API non officiel pour les paiements mobiles le moyen de paiement FASO ARZEKA au Burkina Faso
 
 ## Avant l'installation
 

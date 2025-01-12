@@ -5,7 +5,7 @@ description = "Library for arzeka payment in Burkina Faso"
 authors = ["Mohamed Zeba <parice02@hotmail.com>"]
 readme = "README.md"
 packages = [{ include = "arzeka" }]
-keywords = ["arzeka", "arzeka payment", "burkina mobile money", "mobile money"]
+keywords = ["faso arzeka", "faso arzeka payment", "burkina mobile money", "mobile money"]
 classifiers = [
     "Topic :: Software Development :: Build Tools",
     "Topic :: Software Development :: Libraries :: Python Modules",
