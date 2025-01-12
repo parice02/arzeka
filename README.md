@@ -1,6 +1,6 @@
 # ARZEKA Mobile Money Payment API (Burkina Faso)
 
-API non officiel pour les paiements mobiles Orange Money, Moov Money et Ligdicash au Burkina Faso
+API non officiel pour les paiements mobiles le moyen de paiement ARZEKA au Burkina Faso
 
 
 ## Avant l'installation
@@ -24,11 +24,10 @@ poetry add git+https://github.com/parice02/arzeka.git # with poetry
 
 ## Cas d'utilisation
 
-### exemple d'initialisation d'un paiement
+### Exemple d'initialisation d'un paiement
 
 ```python
 from arzeka import initiate_payment
-
 
 
 token = "<Your arzeka token>"
@@ -56,7 +55,7 @@ response = initiate_payment(token, api_url, **data)
 print(response)
 ```
 
-
+### Exemple de vérification de paiement
 
 ## Contribution
 
