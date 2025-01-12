@@ -1,5 +1,4 @@
 import base64
-from datetime import datetime
 
 import requests  # TODO replace with urllib3
 
@@ -58,8 +57,6 @@ class ArzekaPayment(BasePayment):
             raise ValueError("value 'url' must be type of 'str'")
 
         self._url = url if url.endswith("/") else url + "/"
-        self._callback_url = self._url + "orderinfo"
-        self._check_url = self._url + "getThirdPartyMapInfo"
 
     @property
     def url(self):
