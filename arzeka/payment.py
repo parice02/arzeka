@@ -4,7 +4,9 @@ import requests  # TODO replace with urllib3
 
 
 class BasePayment(object):
-    """ """
+    """Base class for payment
+
+    """
 
     def __init__(self, token: str = ""):
         if token is None or not isinstance(token, str):
@@ -50,6 +52,7 @@ class BasePayment(object):
 
 
 class ArzekaPayment(BasePayment):
+    
     def __init__(self, token: str, url: str = ""):
         super().__init__(token)
 

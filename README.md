@@ -54,7 +54,21 @@ print(response)
 
 ### Exemple de vérification de paiement
 
-à rédiger
+```python
+from arzeka import check_payment
+
+
+token = "<Your arzeka token>"
+api_url = "<arzeka API URL>"
+mappedOrderId = "<ID for this transaction>"
+
+# See Arzeka API document documentation for more detail
+
+mappedOrderId = mappedOrderId,
+
+response = check_payment(token, api_url, mappedOrderId)
+print(response)
+```
 
 ## Contribution
 
