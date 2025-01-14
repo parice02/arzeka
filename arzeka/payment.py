@@ -1,12 +1,20 @@
 import base64
+from urllib.parse import urlencode
 
 import requests  # TODO replace with urllib3
 
+payment_data_keys = [
+    "msisdn",
+    "amount",
+    "merchantid",
+    "mappedOrderId",
+    "linkForUpdateStatus",
+    "linkBackToCallingWebsite",
+]
+
 
 class BasePayment(object):
-    """Base class for payment
-
-    """
+    """Base class for payment"""
 
     def __init__(self, token: str = ""):
         if token is None or not isinstance(token, str):
@@ -21,22 +29,19 @@ class BasePayment(object):
             "accept-language": "en-GB,fr-FR;q=0.8,fr;q=0.6,en;q=0.4",
         }
 
-    def post(self, url, **kwargs) -> requests.Response:
+    def post(self, url, payment_data: dict = None, **kwargs) -> requests.Response:
         headers = kwargs.pop("headers", {})
         headers_ = self.headers()
         headers_.update(headers)
 
-        response = requests.post(url, headers=headers_, json=kwargs)
+        return requests.post(url, headers=headers_, json=payment_data, **kwargs)
 
-        return response
-
-    def get(self, url, **kwargs) -> requests.Response:
+    def get(self, url, payment_data: dict = None, **kwargs) -> requests.Response:
         headers = kwargs.pop("headers", {})
         headers_ = self.headers()
         headers_.update(headers)
 
-        response = requests.get(url, headers=headers_, params=kwargs)
-        return response
+        return requests.get(url, headers=headers_, params=payment_data, **kwargs)
 
     @property
     def token(self):
@@ -52,7 +57,7 @@ class BasePayment(object):
 
 
 class ArzekaPayment(BasePayment):
-    
+
     def __init__(self, token: str, url: str = ""):
         super().__init__(token)
 
@@ -73,17 +78,8 @@ class ArzekaPayment(BasePayment):
     def url(self):
         del self._url
 
-    def initiate_payment(self, payment_data: dict):
-        if not set(
-            [
-                "msisdn",
-                "amount",
-                "merchantid",
-                "mappedOrderId",
-                "linkForUpdateStatus",
-                "linkBackToCallingWebsite",
-            ]
-        ).issubset(set(payment_data.keys())):
+    def initiate_payment(self, payment_data: dict, **kwargs):
+        if not set(payment_data_keys).issubset(set(payment_data.keys())):
             raise KeyError("you must give all parameters ")
 
         payment_data.update(
@@ -105,7 +101,7 @@ class ArzekaPayment(BasePayment):
             }
         )
 
-        return self.get(self.url + "validorder", **payment_data)
+        return f"{self.url + "validorder"}?{urlencode(payment_data,encoding="utf8")}"
 
     def check_payment(self, mappedOrderId):
         kwargs = {"headers": {"authorization": self.token}}
@@ -113,5 +109,6 @@ class ArzekaPayment(BasePayment):
         return self.post(
             self.url
             + "getThirdPartyMapInfo?mappedOrderId=%(value)s" % (mappedOrderId,),
-            kwargs=kwargs,
+            None,
+            **kwargs,
         )

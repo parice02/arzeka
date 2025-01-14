@@ -1,7 +1,7 @@
 from arzeka.payment import ArzekaPayment
 
 
-def initiate_payment(token: str, url: str, payment_data: dict):
+def initiate_payment(token: str, url: str, payment_data: dict, **kwargs):
     """initialize payment
 
     Args:
@@ -18,8 +18,7 @@ def initiate_payment(token: str, url: str, payment_data: dict):
     Returns:
         _type_: _description_
     """
-    pay = ArzekaPayment(token=token, url=url)
-    return pay.initiate_payment(payment_data)
+    return ArzekaPayment(token=token, url=url).initiate_payment(payment_data, **kwargs)
 
 
 def check_payment(token: str, url: str, mappedOrderId: int):
@@ -33,5 +32,4 @@ def check_payment(token: str, url: str, mappedOrderId: int):
     Returns:
         _type_: _description_
     """
-    pay = ArzekaPayment(token=token, url=url)
-    return pay.check_payment(mappedOrderId=mappedOrderId)
+    return ArzekaPayment(token=token, url=url).check_payment(mappedOrderId)
